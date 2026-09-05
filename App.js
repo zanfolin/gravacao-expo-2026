@@ -1,20 +1,30 @@
-import { StyleSheet, Text, View } from 'react-native';
-
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from "react-native-safe-area-context";
 import { GluestackUIProvider } from '@/components/ui/gluestack-ui-provider';
 import '@/global.css';
 import { Button, ButtonText } from './components/ui/button';
+import { Box } from './components/ui/box';
+import { HStack } from './components/ui/hstack';
+import { VStack } from './components/ui/vstack';
 
 export default function App() {
   return (
-
     <GluestackUIProvider mode="dark">
-      <View style={styles.container}>
-        <Text>Gravação Aula</Text>
-        <Text style={styles.negrito}>DDM I - 2026</Text>
-        <Button variant="secondary" size="default">
-          <ButtonText className=' font-bold uppercase'>2o. INFO - etec</ButtonText>
-        </Button>
-      </View>
+      <SafeAreaView className="flex-1 bg-slate-500">
+        <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingEnd: 30 }}>
+          <Box className="h-24 bg-white border-b border-slate-200 px-6 flex-row items-center justify-between">
+            <HStack className="items-center gap-4">
+              <Text>A</Text>
+              <Box>
+                <VStack>
+                  <Text>Nome</Text>
+                  <Text>Nome</Text>
+                </VStack>
+              </Box>
+            </HStack>
+          </Box>
+        </ScrollView>
+      </SafeAreaView>
     </GluestackUIProvider>
 
   );
